@@ -1,0 +1,207 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2B1B3D;
+    --ink-2:#241733;
+    --glow-1:#FFD9C7;
+    --glow-2:#FFB6C1;
+    --glow-3:#FF8FA3;
+    --cream:#FFF5F0;
+    --lav:#B8A9C9;
+    --line:rgba(255,255,255,0.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink-2);
+    color:var(--cream);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;letter-spacing:-0.01em;}
+  a{color:inherit;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;}
+
+  /* nav */
+  nav{display:flex;align-items:center;justify-content:space-between;padding:28px 0;}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-size:20px;font-weight:600;}
+  .brand .dot{width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--glow-1),var(--glow-3));flex:none;}
+  nav a.cta-small{
+    font-size:14px;font-weight:600;color:var(--ink-2);background:var(--glow-2);
+    padding:10px 20px;border-radius:100px;text-decoration:none;
+  }
+
+  /* hero */
+  .hero{padding:60px 0 40px;text-align:center;position:relative;}
+  .glow-mark{width:220px;height:220px;margin:0 auto 32px;position:relative;}
+  .glow-mark .ring{position:absolute;inset:0;border-radius:50%;border:1px solid var(--line);}
+  .glow-mark .ring.r2{inset:24px;}
+  .glow-mark .core{
+    position:absolute;inset:64px;border-radius:50%;
+    background:radial-gradient(circle at 38% 32%,var(--glow-1),var(--glow-2) 55%,var(--glow-3) 100%);
+    animation:pulse 3.6s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.045);}}
+  .ray{position:absolute;background:var(--glow-2);border-radius:2px;opacity:0.75;}
+  .hero h1{font-size:clamp(32px,5.4vw,56px);max-width:720px;margin:0 auto 18px;}
+  .hero h1 em{font-style:italic;color:var(--glow-2);}
+  .hero p.lede{color:var(--lav);font-size:18px;max-width:520px;margin:0 auto 32px;}
+  .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:14px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;
+    padding:14px 28px;border-radius:100px;text-decoration:none;transition:opacity .15s;
+  }
+  .btn:hover{opacity:.88;}
+  .btn.primary{background:var(--glow-2);color:var(--ink-2);}
+  .btn.ghost{border:1px solid var(--line);color:var(--cream);}
+  .fine{color:var(--lav);font-size:13px;}
+
+  /* strip */
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;margin:56px 0;}
+  .strip .row{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;text-align:center;}
+  .strip .item b{display:block;font-family:'Fraunces',serif;font-size:20px;font-weight:500;}
+  .strip .item span{color:var(--lav);font-size:13px;}
+
+  /* benefits */
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:80px;}
+  .card{border:1px solid var(--line);border-radius:16px;padding:28px 24px;}
+  .card .num{color:var(--glow-2);font-family:'Fraunces',serif;font-size:14px;margin-bottom:14px;display:block;}
+  .card h3{font-size:19px;margin-bottom:10px;}
+  .card p{color:var(--lav);font-size:14.5px;}
+
+  /* compare */
+  .compare{margin-bottom:80px;}
+  .compare h2{text-align:center;font-size:clamp(26px,3.4vw,36px);margin-bottom:36px;}
+  .cmp-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .cmp-box{border-radius:16px;padding:28px;border:1px solid var(--line);}
+  .cmp-box.old{opacity:.55;}
+  .cmp-box.new{background:linear-gradient(160deg,rgba(255,182,193,0.14),transparent);border-color:var(--glow-3);}
+  .cmp-box h4{font-size:15px;color:var(--lav);font-weight:600;margin-bottom:16px;text-transform:uppercase;letter-spacing:.06em;}
+  .cmp-box ul{list-style:none;font-size:15px;}
+  .cmp-box li{padding:8px 0;border-top:1px solid var(--line);}
+  .cmp-box li:first-child{border-top:none;}
+
+  /* order */
+  .order{
+    border-radius:24px;padding:56px 40px;text-align:center;margin-bottom:80px;
+    background:linear-gradient(165deg,rgba(255,217,199,0.12),rgba(255,143,163,0.06));
+    border:1px solid var(--glow-3);
+  }
+  .order h2{font-size:clamp(26px,3.6vw,38px);margin-bottom:12px;}
+  .price{font-family:'Fraunces',serif;font-size:44px;margin:18px 0 6px;}
+  .price span{font-size:18px;color:var(--lav);text-decoration:line-through;margin-left:10px;}
+  .order .fine{margin-bottom:28px;}
+  .steps{max-width:460px;margin:0 auto 30px;text-align:left;}
+  .steps li{display:flex;gap:12px;padding:10px 0;font-size:14.5px;color:var(--lav);}
+  .steps b{color:var(--cream);}
+  .steps .n{
+    flex:none;width:22px;height:22px;border-radius:50%;background:var(--glow-2);color:var(--ink-2);
+    font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;
+  }
+
+  footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;color:var(--lav);font-size:13px;}
+
+  @media(max-width:720px){
+    .grid3{grid-template-columns:1fr;}
+    .cmp-grid{grid-template-columns:1fr;}
+    .strip .row{gap:24px;}
+  }
+</style>
+
+<div class="wrap">
+  <nav>
+    <div class="brand"><span class="dot"></span>LumiSkin</div>
+    <a class="cta-small" href="#order">Order now</a>
+  </nav>
+</div>
+
+<section class="hero">
+  <div class="glow-mark">
+    <div class="ring"></div>
+    <div class="ring r2"></div>
+    <div class="core"></div>
+  </div>
+  <div class="wrap">
+    <h1>Salon‑grade glow,<br><em>from your couch.</em></h1>
+    <p class="lede">The same red‑light technology clinics charge $200 a session for — now yours, once, for good. 10 minutes a day. No needles. No appointments.</p>
+    <div class="hero-ctas">
+      <a class="btn primary" href="#order">Get your mask — $35</a>
+      <a class="btn ghost" href="#how">How it works</a>
+    </div>
+    <p class="fine">30‑day guarantee · free shipping · pay with USDT</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="strip">
+    <div class="row">
+      <div class="item"><b>10 min</b><span>daily session</span></div>
+      <div class="item"><b>4–8 wks</b><span>to visible results</span></div>
+      <div class="item"><b>4.8★</b><span>average rating*</span></div>
+      <div class="item"><b>1x</b><span>buy, keep forever</span></div>
+    </div>
+  </div>
+
+  <div id="how" class="grid3">
+    <div class="card">
+      <span class="num">01</span>
+      <h3>Red + near‑infrared light</h3>
+      <p>Stimulates collagen production at the cellular level — the same wavelengths used in dermatology offices.</p>
+    </div>
+    <div class="card">
+      <span class="num">02</span>
+      <h3>10 minutes, hands‑free</h3>
+      <p>Wear it while you scroll, cook, or unwind. Auto shut‑off. USB‑rechargeable, cordless.</p>
+    </div>
+    <div class="card">
+      <span class="num">03</span>
+      <h3>Non‑invasive, FDA‑cleared tech</h3>
+      <p>No pain, no downtime, no injections — dermatologists recommend it as a supportive treatment.</p>
+    </div>
+  </div>
+
+  <div class="compare">
+    <h2>The clinic visit vs. the couch</h2>
+    <div class="cmp-grid">
+      <div class="cmp-box old">
+        <h4>Dermatology clinic</h4>
+        <ul>
+          <li>$200–$500 per session</li>
+          <li>Book weeks in advance</li>
+          <li>Drive there, wait, drive back</li>
+          <li>Repeat monthly, forever</li>
+        </ul>
+      </div>
+      <div class="cmp-box new">
+        <h4>LumiSkin, at home</h4>
+        <ul>
+          <li>$35, once</li>
+          <li>Starts tonight</li>
+          <li>10 minutes on your couch</li>
+          <li>Yours for as long as you use it</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="order" class="order">
+    <h2>Ready to start your glow routine?</h2>
+    <div class="price">$35 <span>$70</span></div>
+    <p class="fine">Free worldwide shipping · 30‑day money‑back guarantee</p>
+    <ol class="steps">
+      <li><span class="n">1</span><div>Message us on Telegram — tap the button below.</div></li>
+      <li><span class="n">2</span><div>We'll send you the <b>USDT (TRC20)</b> wallet address and confirm your order details.</div></li>
+      <li><span class="n">3</span><div>Send payment and share the transaction ID — we ship within 24 hours.</div></li>
+    </ol>
+    <a class="btn primary" href="https://t.me/lumiskin_orders" target="_blank" rel="noopener">Order via Telegram</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    LumiSkin — salon‑grade glow, at home. *based on comparable products in this category.
+  </div>
+</footer>
